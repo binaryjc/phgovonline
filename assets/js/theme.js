@@ -337,6 +337,25 @@ var navbarInit = function navbarInit() {
 // /* -------------------------------------------------------------------------- */
 
 
+var complianceNoticeInit = function complianceNoticeInit() {
+  var main = document.querySelector('main');
+
+  if (!main) return;
+
+  var notice = document.createElement('section');
+  notice.className = 'compliance-banner py-3 border-bottom';
+  notice.innerHTML = "<div class=\"container\">\n      <p class=\"mb-1 small text-uppercase fw-bold text-dark\">Independent information resource</p>\n      <p class=\"mb-2 small text-dark\">PH Online Services is an informational directory and is not affiliated with, endorsed by, or officially connected to any Philippine government agency.</p>\n      <p class=\"mb-0 small text-dark\">Service requirements and procedures are sourced directly from the official government portals linked on each page, including the Philippine government service directory at <a class=\"fw-semibold\" href=\"https://www.gov.ph/services\" target=\"_blank\" rel=\"noopener noreferrer\">https://www.gov.ph/services</a>. Please verify details on the relevant government website before transacting.</p>\n    </div>";
+
+  var anchor = main.querySelector('nav ~ section');
+
+  if (anchor) {
+    main.insertBefore(notice, anchor);
+  } else {
+    main.appendChild(notice);
+  }
+};
+
 docReady(navbarInit);
 docReady(detectorInit);
+docReady(complianceNoticeInit);
 //# sourceMappingURL=theme.js.map
